@@ -1,0 +1,23 @@
+<div class="container container-500" style="text-align:center;">
+    <div class="alert alert-info" ng-show="!error && !success">
+        Procesando...
+    </div>
+    <div ng-show="error" >
+        
+        <div style="color:red;font-size:131px;">
+            <i class="fa fa-ban" ></i>
+        </div>
+        <div class="alert alert-danger"  >
+            {{error.message}}
+        </div>
+    </div>
+    <div ng-show="success">
+        <div style="color:green;font-size:131px;" >
+        <i class="fa fa-check" ></i>
+        </div>
+        <div class="alert alert-success">
+            Valido :)
+        </div>
+    </div>
+    <button type="button" class="btn btn-default" ng-click="changeEvent()">Change event</button>
+</div>

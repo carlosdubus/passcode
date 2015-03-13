@@ -1,0 +1,94 @@
+<div class="modal-body">
+<div class="omb_login"  >
+<div ng-controller="SignUpCtrl">
+        <h3 class="omb_authTitle"><a href="#" ng-click="switchToLogin()" prevent-default >Login</a> o Registro</h3>
+		
+        <form class="omb_loginForm" action="/auth/login" name="form" novalidate="" autocomplete="off" method="POST" ng-submit='submit(form,$event)'>
+		<div class="row ">
+		
+                            <div class="col-sm-6">
+                                <form-group label='Nombre'>
+                                    <input name='firstName' type="text" class="form-control" ng-model='data.firstName' required>
+                                </form-group>
+                            </div>				
+                            <div class="col-sm-6">
+				<form-group label='Apellido' >
+                                    <input name='lastName' type="text" class="form-control" ng-model='data.lastName' required>
+                                </form-group>
+                            </div>
+                </div>
+		<div class="row ">
+		
+                            <div class="col-sm-6">
+				<form-group label='Email' >
+                                    <input name='email' type="email" class="form-control" ng-model='data.email' required unique-email>
+                                    <span class="help-block" ng-show='error("email","email")'>Email no valido</span>
+                                    <span class="help-block" ng-show='error("email","uniqueEmail")'>Email ya existe</span>
+                                </form-group>
+                            </div>				
+                            <div class="col-sm-6">
+				<form-group label='Repetir email' >
+                                    <input name='email2' type="email" class="form-control" ng-model='data.email2' required same-email='data.email' >
+                                    <span class="help-block" ng-show='invalid(form,"email2")'>Email no coincide</span>
+                                </form-group>
+                            </div>
+                </div>
+		<div class="row ">
+		
+                            <div class="col-sm-12">
+				<form-group label='Password' >
+                                    <input name='password' ng-model='data.password' type="password" class="form-control"  required>
+                                </form-group>
+                            </div>				
+                            
+                </div>
+                <label>Fecha de nacimiento</label>
+                <div class="row">
+                    
+                <div class="col-xs-4 col-md-4">
+                    <form-group>
+                        <input name='day' ng-model='data.day' type="text" class="form-control" placeholder='Dia' required>
+                    </form-group>
+                </div>
+                        
+                <div class="col-xs-4 col-md-4">
+                    <form-group>
+                        <input name='month' ng-model='data.month' type="text" placeholder='Mes' class="form-control"  required>
+                    </form-group>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <form-group>
+                        <input name='month' ng-model='data.year' type="text" placeholder='Año' class="form-control"  required>
+                    </form-group>
+                </div>
+                    
+            </div>
+                
+                <div class="row radio" ng-class="{'has-error':form.$submitted && form.sex.$invalid}">
+                     <div class="col-sm-3">
+                         <label class='radio control-label'><input type="radio" name="sex" value="male" required ng-model='data.sex' >Masculino</label>
+                     </div>
+                     <div class="col-sm-3">
+                         <label class='radio control-label'><input type="radio" name="sex" value="female" required  ng-model='data.sex' >Femenino</label>
+                     </div>
+                     <div class="col-sm-3">
+                         <label class='radio control-label'><input type="radio" name="sex" value="other" required ng-model='data.sex' >Otro</label>
+                     </div>
+                    
+                </div>
+                <div class="help-block" ng-show='invalid(form,"sex")'>Seleccione sexo</div>
+                
+                <div class='alert alert-danger' ng-show='hasError'>Hubo un error procesando el registro.</div>
+                            <div class="row ">
+			<div class="col-xs-12 col-sm-12">
+	
+				<button class="btn btn-lg btn-primary btn-block" ng-disabled='form.$submitting' type="submit" >
+                                    Registrarse
+                                </button>
+				
+			</div>
+                </div>
+</form>    
+	</div>
+            </div>
+</div>

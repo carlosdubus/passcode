@@ -1,0 +1,21 @@
+<div class='container'>
+    <h3 class='page-header'>Eventos</h3>
+    <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat='event in events'>
+            <div class="thumbnail">
+                <h4>
+                    {{event.title}}
+                    <span class="label label-info info">
+                        <span data-toggle="tooltip" title="viewed">257 <b class="glyphicon glyphicon-eye-open"></b></span>
+                        <span data-toggle="tooltip" title="viewed">3 <b class="glyphicon glyphicon-star"></b></span>
+                 
+                    </span>
+                </h4>
+                <img ng-src='{{event.image}}' alt="...">
+                <a class="btn btn-primary col-xs-12" role="button" ui-sref="events:view({eventId:event.id})">Ver Evento</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        
+    </div>
+</div>

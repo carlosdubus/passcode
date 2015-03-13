@@ -1,0 +1,73 @@
+<div class="modal-body">
+            <div class="omb_login"  >
+                
+                <div ng-controller="LoginCtrl">
+                   
+    	<h3 class="omb_authTitle">Login o <a href='#' ng-click="switchToSignUp()" prevent-default>Registro</a></h3>
+		<div class="row  omb_socialButtons">
+    	    <div class="col-xs-4 col-sm-4">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+			        <i class="fa fa-facebook visible-xs"></i>
+			        <span class="hidden-xs">Facebook</span>
+		        </a>
+	        </div>
+        	<div class="col-xs-4 col-sm-4">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+			        <i class="fa fa-twitter visible-xs"></i>
+			        <span class="hidden-xs">Twitter</span>
+		        </a>
+	        </div>	
+        	<div class="col-xs-4 col-sm-4">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+			        <i class="fa fa-google-plus visible-xs"></i>
+			        <span class="hidden-xs">Google+</span>
+		        </a>
+	        </div>	
+		</div>
+
+		<div class="row  omb_loginOr">
+			<div class="col-xs-12 col-sm-12">
+				<hr class="omb_hrOr">
+				<span class="omb_spanOr">o</span>
+			</div>
+		</div>
+            <form class="omb_loginForm" action="/auth/login" name="form" autocomplete="off" method="POST">
+		<div class="row ">
+			<div class="col-xs-12 col-sm-12">	
+			    
+					<div class="input-group" ng-class="{'has-error':form.$submitted && form.email.$invalid}">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="email" required class="form-control" ng-model="data.email" name="email" placeholder="Email" >
+					</div>
+										
+					<div class="input-group" ng-class="{'has-error':form.$submitted && form.password.$invalid}">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" required ng-model='data.password' class="form-control" name="password" placeholder="Password">
+					</div>
+
+                                    <div class="alert alert-danger" role="alert" ng-show='form.$error.validCredentials'>Email/password incorrectos.</div>
+
+				<button class="btn btn-lg btn-primary btn-block" ng-disabled='form.$submitting' type="submit" ng-click="submit(form,$event)">
+                                    <span ng-show='!form.$submitting'>Login</span>
+                                    <span ng-show='form.$submitting'>Logging in...</span>
+                                </button>
+				
+			</div>
+    	</div>
+		<div class="row " style='margin-top:10px'>
+			<div class="col-xs-12 col-sm-4">
+			<label style="font-weight:normal;"><input ng-model='data.rememberme' name='rememberme' type="checkbox">
+                        Recuerdame </label>
+				
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				
+					<a href="#">Olvidaste tu password?</a>
+				
+			</div>
+		</div>	   
+</form>    
+	</div>
+         
+            </div>
+</div>

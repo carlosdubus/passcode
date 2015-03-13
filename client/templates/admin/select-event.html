@@ -1,0 +1,24 @@
+<div class="container container-500">
+    <div class="alert alert-warning" ng-show="!saved && !error && !saving">
+        Select event.
+    </div>
+    <div class="alert alert-success" ng-show="saved" style="margin-top:10px">
+        Event key saved.
+    </div>
+    <div class="alert alert-info" ng-show="!error && saving && !saved" style="margin-top:10px">
+        Saving...
+    </div>
+    <div class="alert alert-danger" ng-show="error" style="margin-top:10px">
+        {{error.message}}
+    </div>
+    <table class="table table-striped">
+        <tr ng-repeat="event in events" ng-class="{'row-selected':event.key == currentEventKey}">
+            <td>{{event.title}}</td>
+            <td>
+                <button ng-disabled="saving" ng-show="event.key != currentEventKey" type="button" class="btn btn-default" ng-click="selectEvent(event.key)">Select</button>
+                <span ng-show="event.key == currentEventKey">Selected</span>
+            </td>
+        </tr>
+    </table>
+    
+</div>

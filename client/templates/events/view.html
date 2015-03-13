@@ -1,0 +1,42 @@
+
+<div class="container container-500">
+<h3 class="page-header">{{event.title}}</h3>
+    <div>
+        <img ng-src='{{event.image}}' style='width:100%' />
+    </div>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Evento:</th>
+                <td ng-bind='event.title'></td>
+            </tr>
+            <tr>
+                <th>Descripcion:</th>
+                <td ng-bind='event.description'></td>
+            </tr>
+            <tr>
+                <th>Fecha:</th>
+                <td ng-bind='event.startTime.date'></td>
+            </tr>
+            <tr>
+                <th>Precio:</th>
+                <td >RD$200.00</td>
+            </tr>
+        </tbody>
+</table>
+    <div class='alert alert-danger' ng-show='!auth.loggedIn'>
+        Necesitas hacer <a prevent-default ui-sref='login({redirect:"/events/"+event.id})'>login</a> para comprar un ticket.
+    </div>
+    <div class='alert alert-danger' ng-show='hasError'>
+        Error comprando ticket.
+    </div>
+
+<div class="text-right">
+    <button class="btn btn-default " ui-sref="events" ng-if="false">Cerrar</button>
+    <button type="button" class="btn btn-primary btn-lg " ng-click='buyTicket()' ng-disabled='!auth.loggedIn || buying'>
+                        <span ng-show="!buying">Comprar ticket</span>
+                        <span ng-show="buying">Procesando...</span>
+                    </button> 
+</div>
+
+</div>

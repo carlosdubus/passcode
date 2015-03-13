@@ -1,0 +1,24 @@
+<div class='container'>
+    <h1 class='page-header'>Mis Tickets</h1>
+    <div class="alert alert-info" ng-show="!tickets.length">
+        No tickets.
+    </div>
+    <table class="table table-striped" ng-show="tickets.length">
+        <thead>
+            <tr>
+        
+        <th>Evento</th>
+        <th>Comprado en</th>
+<th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(i,ticket) in tickets">
+                
+                <td ><a ng-bind="ticket.eventTitle" ui-sref="events:view({eventId:ticket.eventId})" ></a></td>
+                <td ng-bind="ticket.createdAt.date"></td>
+                <td ><button type="button" class="btn btn-default" ui-sref="my-tickets:view({ticketToken:ticket.token})">Ver ticket</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

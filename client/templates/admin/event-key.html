@@ -1,0 +1,33 @@
+<div class="container container-500">
+    <div class="alert alert-danger" ng-show="needEventKey">
+        No event key
+    </div>
+     <form name="form" novalidate="" autocomplete="off"  ng-submit='submit(form,$event)'>
+		<div class="row ">
+		
+                            <div class="col-sm-12">
+                                <form-group label='Event key:'>
+                                    <input name='eventKey' type="text" class="form-control" ng-model='data.eventKey' required>
+                                </form-group>
+                            </div>	
+                    <div class="col-sm-3">
+	
+				<button class="btn btn-primary btn-block" ng-disabled='form.$submitting' type="submit" >
+                                    Save
+                                </button>
+				
+			</div>
+                </div>
+     </form>
+
+    <div class="alert alert-success" ng-show="saved" style="margin-top:10px">
+        Event key saved.
+    </div>
+    <div class="alert alert-info" ng-show="!error && saving && !saved" style="margin-top:10px">
+        Saving...
+    </div>
+    <div class="alert alert-danger" ng-show="error" style="margin-top:10px">
+        Erroraso :/
+    </div>
+
+</div>

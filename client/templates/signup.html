@@ -1,0 +1,79 @@
+<div class="container container-500">
+<div class="omb_login"  >
+<div ng-controller="SignUpCtrl">
+        <h3 class="page-header">Registro</h3>
+		
+        <form class="omb_loginForm" action="/auth/login" name="form" novalidate="" autocomplete="off" method="POST" ng-submit='submit(form,$event)'>
+		<div class="row ">
+		
+                            <div class="col-sm-6">
+                                <form-group label='Nombre'>
+                                    <input name='firstName' type="text" class="form-control" ng-model='data.firstName' required>
+                                </form-group>
+                            </div>				
+                            <div class="col-sm-6">
+				<form-group label='Apellido' >
+                                    <input name='lastName' type="text" class="form-control" ng-model='data.lastName' required>
+                                </form-group>
+                            </div>
+                </div>
+		<div class="row ">
+		
+                            <div class="col-sm-6">
+				<form-group label='Email' >
+                                    <input name='email' type="email" class="form-control" ng-model='data.email' required unique-email>
+                                    <span class="help-block" ng-show='error("email","email")'>Email no valido</span>
+                                    <span class="help-block" ng-show='error("email","uniqueEmail")'>Email ya existe</span>
+                                </form-group>
+                            </div>				
+                            <div class="col-sm-6">
+				<form-group label='Repetir email' >
+                                    <input name='email2' type="email" class="form-control" ng-model='data.email2' required same-email='data.email' >
+                                    <span class="help-block" ng-show='invalid(form,"email2")'>Email no coincide</span>
+                                </form-group>
+                            </div>
+                </div>
+		<div class="row ">
+		
+                            <div class="col-sm-6">
+				<form-group label='Password' >
+                                    <input name='password' ng-model='data.password' type="password" class="form-control"  required>
+                                </form-group>
+                            </div>				
+                            <div class="col-sm-6">
+				<form-group label='Fecha de nacimiento' >
+                                    <input name='birthDate' ng-model='data.birthDate' type="date" class="form-control"  required>
+                                </form-group>
+                            </div>				
+                            
+                </div>
+              
+                
+                <div class="row radio" ng-class="{'has-error':form.$submitted && form.gender.$invalid}">
+                     <div class="col-sm-3">
+                         <label class='radio control-label'><input type="radio" name="gender" value="M" required ng-model='data.gender' >Masculino</label>
+                     </div>
+                     <div class="col-sm-3">
+                         <label class='radio control-label'><input type="radio" name="gender" value="F" required  ng-model='data.gender' >Femenino</label>
+                     </div>
+                     <div class="col-sm-3" ng-if="false">
+                         <label class='radio control-label'><input type="radio" name="gender" value="O" required ng-model='data.gender' >Otro</label>
+                     </div>
+                    
+                </div>
+                <div class="help-block" ng-show='invalid(form,"gender")'>Seleccione sexo</div>
+                
+                <div class='alert alert-danger' ng-show='hasError'>Hubo un error procesando el registro.</div>
+                            <div class="row ">
+			<div class="col-xs-12 col-sm-12">
+	
+				<button class="btn btn-lg btn-primary btn-block" ng-disabled='form.$submitting' type="submit" >
+                                    Registrarse
+                                </button>
+				
+			</div>
+                </div>
+</form>    
+	</div>
+            </div>
+</div>

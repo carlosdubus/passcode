@@ -1,0 +1,26 @@
+
+<div class="container container-500">
+<h3 class="page-header">Ticket</h3>
+<div>
+    <div>
+        <img ng-src='/images/tickets/{{ticket.token}}' class="qrcode"  />
+    </div>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Evento:</th>
+                <td ng-bind='ticket.eventTitle'></td>
+            </tr>
+            <tr>
+                <th>Comprado en:</th>
+                <td ng-bind='ticket.createdAt.date'></td>
+            </tr>
+        </tbody>
+</table>
+
+</div>
+<div class="text-right">
+    <button class="btn btn-default " ui-sref="my-tickets">Mis tickets</button>
+</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="input-group has-feedback" ng-class="{
+            'has-error':(form[name].$dirty || form.$submitted) && form[name].$invalid,
+            'has-success':(form[name].$dirty  || form.$submitted) && form[name].$valid,
+        }">
+    <label class="control-label" ng-if='label' style="display:block">{{label}}</label>
+    <span ng-transclude=""></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-style='feedbackStyle' ng-if="(form[name].$dirty || form.$submitted) && form[name].$invalid"></span>
+    <span class="glyphicon glyphicon-ok form-control-feedback" ng-style='feedbackStyle' ng-if="(form[name].$dirty || form.$submitted) && form[name].$valid"></span>
+ </div>

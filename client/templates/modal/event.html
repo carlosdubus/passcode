@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{event.title}}</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <img ng-src='{{event.image}}' style='width:100%' />
+    </div>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Evento:</th>
+                <td ng-bind='event.title'></td>
+            </tr>
+            <tr>
+                <th>Descripcion:</th>
+                <td ng-bind='event.description'></td>
+            </tr>
+            <tr>
+                <th>Fecha:</th>
+                <td ng-bind='event.startTime.date'></td>
+            </tr>
+            <tr>
+                <th>Precio:</th>
+                <td >RD$200.00</td>
+            </tr>
+        </tbody>
+</table>
+    <div class='alert alert-danger' ng-show='!auth.loggedIn'>
+        Necesitas hacer <a href='#' prevent-default ng-click='login()'>login</a> para comprar un ticket.
+    </div>
+    <div class='alert alert-danger' ng-show='hasError'>
+        Error comprando ticket.
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default " ng-click="modal.close({goTo:'events'})">Cerrar</button>
+    <button type="button" class="btn btn-primary " ng-click='buyTicket()' ng-disabled='!auth.loggedIn || buying'>
+                        <span ng-show="!buying">Comprar ticket</span>
+                        <span ng-show="buying">Procesando...</span>
+                    </button> 
+</div>
+
