@@ -2,3 +2,6 @@ tmp
 bower_components
 node_modules
 server/public/build
+/nbproject/private/
+nbproject
+server/public/fonts

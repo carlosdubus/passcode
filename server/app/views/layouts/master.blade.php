@@ -19,7 +19,7 @@
 
     <title>Passcode.do</title>
 
-    <!-- Custom styles for this template -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link href="/build/app.css?t=<?=filemtime(public_path('/build/app.css'))?>" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

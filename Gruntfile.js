@@ -12,6 +12,13 @@ module.exports = function(grunt) {
 	      dest: 'tmp/templates.js'
 	    },
 	  },
+	  browserify: {
+		  dist: {
+		    files: {
+		      'tmp/passcode.js': ['client/passcode.js'],
+		    }
+		  }
+		},
 	  concat: {
 	    options: {
 	      
@@ -26,26 +33,35 @@ module.exports = function(grunt) {
 	      "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 	      "bower_components/angular-ui-router/release/angular-ui-router.min.js",
 	      "tmp/templates.js",
-	      "client/passcode.js"],
+	      "tmp/passcode.js"],
 	      dest: 'server/public/build/app.js',
 	    },
 	    css:{
 	    	src:["bower_components/bootstrap/dist/css/bootstrap.min.css",
-	    	"bower_components/font-awesome/index.css",
 	    	"client/css/master.css",
 	    	"client/css/events-list.css",
 	    	"client/css/login-box.css"
 	    	],
 	    	dest: 'server/public/build/app.css'
 	    }
-	  }
+	  },
+	  copy: {
+		  main: {
+		  	flatten:true,
+		  	expand:true,
+		    src: 'bower_components/bootstrap/fonts/*',
+		    dest: 'server/public/fonts/',
+		  },
+		}
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-browserify');
 
   // Default task(s).
-  grunt.registerTask('default', ['html2js','concat']);
+  grunt.registerTask('default', ['html2js','browserify','concat','copy']);
 
 };
