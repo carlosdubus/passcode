@@ -24,6 +24,9 @@ module.exports = function(module) {
 	    }
 	};
     })
+    /**
+     * validate emails are equal
+     */
     .directive('sameEmail', function($http) {
 	return {
 	    require: 'ngModel',
