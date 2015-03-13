@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 	  },
 	  concat: {
 	    options: {
-	      separator: ';',
+	      
 	    },
 	    dist: {
 	      src: ["bower_components/jquery/dist/jquery.min.js",
