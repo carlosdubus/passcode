@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 	    options: {
 	      
 	    },
-	    dist: {
+	    js: {
 	      src: ["bower_components/jquery/dist/jquery.min.js",
 	      "bower_components/bootstrap/dist/js/bootstrap.min.js",
 	      "bower_components/angular/angular.min.js",
@@ -27,8 +27,17 @@ module.exports = function(grunt) {
 	      "bower_components/angular-ui-router/release/angular-ui-router.min.js",
 	      "tmp/templates.js",
 	      "client/passcode.js"],
-	      dest: 'server/public/js/app.js',
+	      dest: 'server/public/build/app.js',
 	    },
+	    css:{
+	    	src:["bower_components/bootstrap/dist/css/bootstrap.min.css",
+	    	"bower_components/font-awesome/index.css",
+	    	"client/css/master.css",
+	    	"client/css/events-list.css",
+	    	"client/css/login-box.css"
+	    	],
+	    	dest: 'server/public/build/app.css'
+	    }
 	  }
   });
 

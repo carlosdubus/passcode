@@ -19,14 +19,8 @@
 
     <title>Passcode.do</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="/css/master.css?t=<?=filemtime(public_path('/css/master.css'))?>" rel="stylesheet">
-    <link href="/css/events-list.css" rel="stylesheet">
-    <link href="/css/login-box.css" rel="stylesheet">
+    <link href="/build/app.css?t=<?=filemtime(public_path('/build/app.css'))?>" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -83,6 +77,6 @@
       </div>
     </div>
     <div ui-view></div>
-    <script src="/js/app.js?t=<?=filemtime(public_path('/js/app.js'))?>"></script>
+    <script src="/build/app.js?t=<?=filemtime(public_path('/build/app.js'))?>"></script>
   </body>
 </html>
